@@ -1,0 +1,138 @@
+<style>
+  .ss-toggle-btn {
+    background-color: #ed2534;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 10px;
+  }
+
+  .ss-toggle-btn:hover {
+    background-color: #125bb5;
+  }
+
+  .ss-table-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease, padding 0.3s ease;
+    margin-top: 0;
+    padding: 0;
+  }
+
+  .ss-table-wrapper.open {
+    max-height: 3000px;
+    padding: 20px 0;
+    margin-top: 10px;
+  }
+
+  .ss-table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+  }
+
+  .ss-table-scroll table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 2px solid #333;
+    border-radius: 10px;
+    min-width: 600px;
+  }
+
+  .ss-table-scroll th,
+  .ss-table-scroll td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+  }
+
+  .ss-table-scroll th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #1a73e8;
+  }
+
+  .ss-table-scroll tr:last-child td {
+    border-bottom: none;
+  }
+
+  @media (max-width: 600px) {
+    .ss-toggle-btn {
+      font-size: 14px;
+    }
+
+    .ss-table-scroll th,
+    .ss-table-scroll td {
+      padding: 8px 10px;
+      font-size: 12px;
+    }
+
+    .ss-table-scroll table {
+      min-width: 100%;
+    }
+  }
+</style>
+
+<div id="ssTableContainer" style="text-align: center;">
+  <button class="ss-toggle-btn" id="ssToggleButton" onclick="toggleStarshipTable()">
+    🚀 Show Starship Milestones
+  </button>
+
+  <div class="ss-table-wrapper" id="ssMilestoneTable">
+    <div class="ss-table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Milestone</th>
+            <th>Target Date</th>
+            <th>Confirmed Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>First fully successful orbital Starship launch with booster reentry recovery and Starship splashdown</td><td>4/20/2025</td><td>X</td></tr>
+          <tr><td>Second uncrewed Starship orbital launch (validation of repeatability)</td><td>7/19/2025</td><td>X</td></tr>
+          <tr><td>Third uncrewed Starship orbital launch (to simulate Mars payload mass)</td><td>10/17/2025</td><td>X</td></tr>
+          <tr><td>At least three consecutive successful Starship flights with booster and Starship reuse</td><td>6/1/2026</td><td>X</td></tr>
+          <tr><td>Demonstration of in-orbit Starship refueling</td><td>12/1/2026</td><td>X</td></tr>
+          <tr><td>Deep space mission with Starship flyby (Moon or cislunar test)</td><td>6/1/2027</td><td>X</td></tr>
+          <tr><td>Limited cargo Starship launches uncrewed test mission to Mars</td><td>1/16/2029</td><td>X</td></tr>
+          <tr><td>Limited cargo Starship successfully arrives at Mars. Landing optional</td><td>7/11/2029</td><td>X</td></tr>
+          <tr><td>Life support system validated for 6+ month space duration</td><td>6/1/2029</td><td>X</td></tr>
+          <tr><td>Habitat module test in simulated Martian environment</td><td>12/1/2029</td><td>X</td></tr>
+          <tr><td>Launch pad & Starship refueling system tested in deep space</td><td>6/1/2030</td><td>X</td></tr>
+          <tr><td>First successful orbital crewed Starship launch</td><td>10/1/2030</td><td>X</td></tr>
+          <tr><td>First rehearsal of full Mars transit profile with crew (Earth orbit or lunar flyby)</td><td>3/1/2031</td><td>X</td></tr>
+          <tr><td>Final uncrewed supply & habitat Starships sent to Mars</td><td>3/11/2031</td><td>X</td></tr>
+          <tr><td>Final supply & habitat Starships arrive and successfully land on Mars</td><td>8/18/2031</td><td>X</td></tr>
+          <tr><td>At least three consecutive successful crewed Starship flights</td><td>1/1/2032</td><td>X</td></tr>
+          <tr><td>All flight systems validated and certified for human mission</td><td>6/1/2032</td><td>X</td></tr>
+          <tr><td>Crew selected and completed long-duration training mission</td><td>3/1/2033</td><td>X</td></tr>
+          <tr><td>First human mission to Mars launches</td><td>5/19/2033</td><td>X</td></tr>
+          <tr><td>First human mission to Mars arrives</td><td>9/8/2033</td><td>X</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleStarshipTable() {
+    const tableWrapper = document.getElementById('ssMilestoneTable');
+    const button = document.getElementById('ssToggleButton');
+
+    tableWrapper.classList.toggle('open');
+
+    if (tableWrapper.classList.contains('open')) {
+      button.innerHTML = 'Hide Starship Milestones';
+    } else {
+      button.innerHTML = 'Show Starship Milestones';
+    }
+  }
+</script>
